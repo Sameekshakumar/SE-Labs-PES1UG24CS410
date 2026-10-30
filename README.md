@@ -22,6 +22,8 @@ SE-Labs-PES1UG24CS410/
 ├── LAB1/   Requirements & use cases
 ├── LAB2/   Agile planning with Jira
 ├── LAB3/   Component modelling & architecture
+├── LAB4/   Vibe Coding Assignment
+├── LAB5/   Static code analysis (Pylint, Bandit, Flake8)
 └── README.md
 ```
 
@@ -73,8 +75,23 @@ The UML component diagram has 5 components and 6 interfaces:
 
 The one-page justification covers the reasons for choosing a layered architecture, its security advantage (encryption enforced in a single Data-layer component) and its performance benefit (validation and generation stay in memory on the hot path).
 
+## Lab 5: Static Code Analysis
+
+Analysed and fixed `ticket_booking_system.py` using Pylint, Bandit and Flake8.
+
+| Tool | Before | After |
+|---|---|---|
+| Pylint | 5.37/10 | 10.00/10 |
+| Bandit | 5 issues (2 High, 1 Medium, 2 Low) | 0 |
+| Flake8 | 7 issues | 0 |
+
+- Key fixes: removed `eval()` and `os.system` (code/shell injection), MD5 → SHA-256, `random` → `secrets` for PINs, mutable default argument bug, hardcoded secret moved to an environment variable.
+- Contents: `code/` (fixed script), `reports/` (before/after reports), `issues.md`, `reflection.md`, full report PDF.
+
 ## Tools Used
 
 - **Diagrams:** UML component and use case diagrams
 - **Project management:** Jira (Scrum)
 - **Docs:** Word / PDF
+- **Static analysis:** Pylint, Bandit, Flake8
+
